@@ -1,14 +1,16 @@
-package com.jm3005.learn.spring.di.why;
+package com.jm3005.learn.spring.core.xml.di;
 
 public class Audi implements Car {
 
 	private MusicSystem musicSystem;
 	
 	private Integer speed;
+	
+	private String color;
 
 	@Override
 	public void driveTheCar() {
-		System.out.println("Driving Audi with speed of "+ speed +" and");
+		System.out.println("Driving Audi with speed of "+ speed +" "+ color +" and");
 		musicSystem.playMusic();
 	}
 
@@ -28,6 +30,16 @@ public class Audi implements Car {
 		super();
 		this.musicSystem = musicSystem;
 		this.speed = speed;
+	}
+	
+	public Audi(MusicSystem musicSystem, String color) {
+		super();
+		this.musicSystem = musicSystem;
+		this.color = color;
+	}
+
+	public Audi() {
+		super();
 	}
 
 }

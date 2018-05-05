@@ -1,4 +1,4 @@
-package com.jm3005.learn.spring.di.why;
+package com.jm3005.learn.spring.core.xml.di;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

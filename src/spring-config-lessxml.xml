@@ -10,20 +10,6 @@
                            http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
 
-	<bean class="com.jm3005.learn.spring.core.xml.ioc.DatabaseOperationsImpl"
-		id="anyName" scope="prototype" />
-
-	<bean class="com.jm3005.learn.spring.core.xml.di.Audi" id="car"> 
-	<property name="musicSystem" ref="sony" /> 
-	<property name="speed" value="100" /> 
-	</bean>
-
-	<!-- <bean class="com.jm3005.learn.spring.core.xml.di.Audi" id="car">
-		<constructor-arg name="musicSystem" ref="sony" />
-		<constructor-arg value="200" />
-	</bean> -->
-
-
-	<bean class="com.jm3005.learn.spring.core.xml.di.Sony" id="sony" />
+<context:component-scan base-package="com.jm3005.learn.spring.core.lessxml" />
 
 </beans>
