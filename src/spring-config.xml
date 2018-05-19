@@ -15,7 +15,8 @@
 
 	<bean class="com.jm3005.learn.spring.core.xml.di.Audi" id="car"> 
 	<property name="musicSystem" ref="sony" /> 
-	<property name="speed" value="100" /> 
+	<property name="speed" value="100" />
+	<property name="color" value="${hondaCity.color}" /> 
 	</bean>
 
 	<!-- <bean class="com.jm3005.learn.spring.core.xml.di.Audi" id="car">
@@ -25,5 +26,8 @@
 
 
 	<bean class="com.jm3005.learn.spring.core.xml.di.Sony" id="sony" />
+	
+	
+	<context:property-placeholder location="classpath:car.properties" />
 
 </beans>

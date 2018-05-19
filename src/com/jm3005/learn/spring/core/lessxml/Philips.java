@@ -2,7 +2,7 @@ package com.jm3005.learn.spring.core.lessxml;
 
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class Philips implements MusicSystem {
 
 	@Override

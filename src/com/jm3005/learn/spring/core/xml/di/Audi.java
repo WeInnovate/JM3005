@@ -10,7 +10,7 @@ public class Audi implements Car {
 
 	@Override
 	public void driveTheCar() {
-		System.out.println("Driving Audi with speed of "+ speed +" "+ color +" and");
+		System.out.println("Driving "+color+" Audi with speed of "+ speed +" "+ color +" and");
 		musicSystem.playMusic();
 	}
 
@@ -41,5 +41,15 @@ public class Audi implements Car {
 	public Audi() {
 		super();
 	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
+	
 
 }
