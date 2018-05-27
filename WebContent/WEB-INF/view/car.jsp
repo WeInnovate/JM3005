@@ -4,17 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home Page</title>
+<title>Car Details</title>
 </head>
-<body>
-	Hello Spring MVC!
-
-	<h1>Student</h1>
-	<a href="show-student-form">Show Student Form</a>
-	
-	
-	
-	<h1>Car</h1>
-	<a href="car/show-car-form">Show Car Form</a>
-</body>
+<body> 
+	Company Name: ${car.companyName }
+	<br />
+	Car Name: ${car.carName }
+	<br />
+	Car Type: ${car.typeOfCar }
+</body> 
 </html>
