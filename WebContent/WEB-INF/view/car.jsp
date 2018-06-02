@@ -12,5 +12,14 @@
 	Car Name: ${car.carName }
 	<br />
 	Car Type: ${car.typeOfCar }
+	<br />
+	Car is manufactured in : ${car.manufacturedIn }
+	<br />
+	Airbags: ${car.airbags[0] } &nbsp; ${car.airbags[1] }
+	<br />
+	ABS: ${car.abs }
+	
+	<br />
+	Comment: ${car.comment }
 </body> 
 </html>
