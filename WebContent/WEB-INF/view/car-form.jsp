@@ -25,6 +25,21 @@
 		<form:errors path="carName" cssClass="errorColor" />
 		<br />
 		
+		<label>Model Number:</label>
+		<form:input path="modelNumber" />
+		<form:errors path="modelNumber" cssClass="errorColor" />
+		<br />
+		
+		<label>Delivery Date:</label>
+		<form:input path="deliveryDate" />
+		<form:errors path="deliveryDate" cssClass="errorColor" />
+		<br />
+		
+		<label>Total Seats:</label>
+		<form:input path="seats" />
+		<form:errors path="seats" cssClass="errorColor" />
+		<br />
+		
 		<label>Car Type:</label>
 		<form:radiobutton path="typeOfCar" value="Automatic" />
 		<label>Automatic</label>
@@ -52,6 +67,7 @@
 		
 		<label>Comment: </label>
 		<form:textarea path="comment" />
+		<form:errors path="comment" cssClass="errorColor" />
 		<br />
 
 <input type="submit" value="Submit">
