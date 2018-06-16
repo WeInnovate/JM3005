@@ -1,4 +1,4 @@
-package com.jm3005.learn.hibernate;
+package com.jm3005.learn.hibernate.identifiers.auto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
