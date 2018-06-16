@@ -1,19 +1,21 @@
-package com.jm3005.learn.hibernate.identifiers.auto;
+package com.jm3005.learn.hibernate.identifiers.sequence;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "JM3005_STUDENT_AUTO")
-public class StudentAuto {
+@Table(name = "JM3005_STUDENT_SEQUENCE")
+@SequenceGenerator(name = "rollNo", sequenceName = "SEQ_JM3005_STUDENT_SEQUENCE", allocationSize = 1, schema = "PUBLIC")
+public class StudentSequence {
 
 	@Id
 	@Column(name = "roll_no")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator = "rollNo", strategy = GenerationType.SEQUENCE)
 	private Long rollNo;
 
 	@Column(name = "name")
@@ -59,14 +61,15 @@ public class StudentAuto {
 
 	@Override
 	public String toString() {
-		return "StudentSequence [rollNo=" + rollNo + ", name=" + name + ", age=" + age + ", percentage=" + percentage + "]";
+		return "StudentSequence [rollNo=" + rollNo + ", name=" + name + ", age=" + age + ", percentage=" + percentage
+				+ "]";
 	}
 
-	public StudentAuto() {
+	public StudentSequence() {
 		super();
 	}
 
-	public StudentAuto(String name, int age, Double percentage) {
+	public StudentSequence(String name, int age, Double percentage) {
 		super();
 		this.name = name;
 		this.age = age;

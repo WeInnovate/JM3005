@@ -1,4 +1,4 @@
-package com.jm3005.learn.hibernate.identifiers.auto;
+package com.jm3005.learn.hibernate.identifiers.identity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,12 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "JM3005_STUDENT_AUTO")
-public class StudentAuto {
+@Table(name = "JM3005_STUDENT_IDENTITY")
+public class StudentIdentity {
 
 	@Id
 	@Column(name = "roll_no")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long rollNo;
 
 	@Column(name = "name")
@@ -62,11 +62,11 @@ public class StudentAuto {
 		return "StudentSequence [rollNo=" + rollNo + ", name=" + name + ", age=" + age + ", percentage=" + percentage + "]";
 	}
 
-	public StudentAuto() {
+	public StudentIdentity() {
 		super();
 	}
 
-	public StudentAuto(String name, int age, Double percentage) {
+	public StudentIdentity(String name, int age, Double percentage) {
 		super();
 		this.name = name;
 		this.age = age;
