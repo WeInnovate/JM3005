@@ -9,7 +9,8 @@ import org.hibernate.cfg.Configuration;
 public class OneToOneUniApp {
 
 	public static void main(String[] args) {
-		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Car.class)
+		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml")
+				.addAnnotatedClass(Car.class)
 				.addAnnotatedClass(CarDetail.class).buildSessionFactory();
 
 		Session session = sessionFactory.getCurrentSession();
