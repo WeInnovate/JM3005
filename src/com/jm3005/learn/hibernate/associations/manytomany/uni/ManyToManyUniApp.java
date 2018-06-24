@@ -1,5 +1,7 @@
 package com.jm3005.learn.hibernate.associations.manytomany.uni;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -16,13 +18,37 @@ public class ManyToManyUniApp {
 					.addAnnotatedClass(Address.class).buildSessionFactory();
 			session = sessionFacoty.getCurrentSession();
 
-//			insert();
-			remove();
+			// insert();
+//			getPerson();
+//			addOneMoreAddressInExistingPerson();
+			 remove();
 
 		} finally {
 			session.close();
 			sessionFacoty.close();
 		}
+	}
+
+	private static void addOneMoreAddressInExistingPerson() {
+		session.beginTransaction();
+
+		Person p = session.get(Person.class, 1L);
+		List<Address> addrs = p.getAddresses();
+
+		Address address3 = new Address("Marathalli", "HDFC Bank");
+		addrs.add(address3);
+
+		session.getTransaction().commit();
+	}
+
+	private static void getPerson() {
+		session.beginTransaction();
+
+		Person p = session.get(Person.class, 1L);
+		System.out.println(p);
+
+		session.getTransaction().commit();
+
 	}
 
 	public static void insert() {
@@ -49,11 +75,11 @@ public class ManyToManyUniApp {
 		session.beginTransaction();
 
 		Person person1 = session.get(Person.class, 1l);
-		Person person2 = session.get(Person.class, 2l);
+//		Person person2 = session.get(Person.class, 2l);
 		Address address1 = session.get(Address.class, 1l);
 
-		person2.getAddresses().remove(address1);
-//		session.remove(person2);
+		person1.getAddresses().remove(address1);
+		// session.remove(person2);
 		session.getTransaction().commit();
 	}
 }

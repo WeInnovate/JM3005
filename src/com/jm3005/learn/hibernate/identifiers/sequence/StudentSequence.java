@@ -10,12 +10,15 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "JM3005_STUDENT_SEQUENCE")
-@SequenceGenerator(name = "rollNo", sequenceName = "SEQ_JM3005_STUDENT_SEQUENCE", allocationSize = 1, schema = "PUBLIC")
 public class StudentSequence {
 
 	@Id
 	@Column(name = "roll_no")
-	@GeneratedValue(generator = "rollNo", strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "rollNo_generator", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "rollNo_generator", 
+	sequenceName = "SEQ_JM3005_STUDENT_SEQUENCE", 
+	allocationSize = 1, 
+	schema = "PUBLIC")
 	private Long rollNo;
 
 	@Column(name = "name")

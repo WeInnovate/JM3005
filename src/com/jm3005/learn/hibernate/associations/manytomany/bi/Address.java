@@ -1,25 +1,33 @@
-package com.jm3005.learn.hibernate.associations.manytomany.uni;
+package com.jm3005.learn.hibernate.associations.manytomany.bi;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "JM3005_MANYTOMANY_UNI_Address")
+@Table(name = "JM3005_MANYTOMANY_BI_Address")
 public class Address {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name="street")
+	@Column(name = "street")
 	private String street;
 
 	@Column(name = "number")
 	private String number;
+
+	@ManyToMany(mappedBy = "addresses", cascade=CascadeType.ALL)
+	private List<Person> owners = new ArrayList<Person>();
 
 	public Address() {
 	}
@@ -41,20 +49,11 @@ public class Address {
 		return number;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public List<Person> getOwners() {
+		return owners;
 	}
 
-	public void setStreet(String street) {
-		this.street = street;
-	}
-
-	public void setNumber(String number) {
-		this.number = number;
-	}
-
-	@Override
-	public String toString() {
-		return "Address [id=" + id + ", street=" + street + ", number=" + number + "]";
+	public void setOwners(List<Person> owners) {
+		this.owners = owners;
 	}
 }

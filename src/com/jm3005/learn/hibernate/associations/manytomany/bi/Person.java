@@ -1,4 +1,4 @@
-package com.jm3005.learn.hibernate.associations.manytomany.uni;
+package com.jm3005.learn.hibernate.associations.manytomany.bi;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,15 +13,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "JM3005_MANYTOMANY_UNI_Person")
+@Table(name = "JM3005_MANYTOMANY_BI_Person")
 public class Person {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(name="name")
+
+	@Column(name = "name")
 	private String name;
 
 	@ManyToMany(cascade = { CascadeType.ALL })
@@ -55,19 +54,13 @@ public class Person {
 		this.name = name;
 	}
 
-	public void setAddr(Address addr) {
-		if(addresses == null) {
-			 addresses = new ArrayList<>();
-		}
-		addresses.add(addr);
-	}
-	
-	@Override
-	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", addresses=" + addresses + "]";
+	public void addAddress(Address address) {
+		addresses.add(address);
+		address.getOwners().add(this);
 	}
 
-	public void setAddresses(List<Address> addresses) {
-		this.addresses = addresses;
+	public void removeAddress(Address address) {
+		addresses.remove(address);
+		address.getOwners().remove(this);
 	}
 }
