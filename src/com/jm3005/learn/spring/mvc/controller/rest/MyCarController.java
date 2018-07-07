@@ -17,8 +17,8 @@ public class MyCarController {
 	@GetMapping
 	public @ResponseBody Car getCar() {
 		Car car = new Car();
-		car.setCarName("Audi X");
-		car.setCompanyName("Audi");
+//		car.setCarName("Audi X");
+//		car.setCompanyName("Audi");
 		return car;
 
 	}
@@ -26,7 +26,7 @@ public class MyCarController {
 	@PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE }, 
 			produces = { MediaType.APPLICATION_JSON_VALUE })
 	public @ResponseBody Car getCar(@RequestBody Car car) {
-		car.setAbs(true);
+//		car.setAbs(true);
 		return car;
 
 	}
